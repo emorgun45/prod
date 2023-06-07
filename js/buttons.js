@@ -1,0 +1,1 @@
+addBtn.onclick = addTodo
