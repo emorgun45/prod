@@ -165,3 +165,8 @@ input:active {
   border: none;
   color: #fff;
 }
+
+html {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url("../materials/background.jpg");
+  background-size: cover;
+}
