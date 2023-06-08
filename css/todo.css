@@ -1,98 +1,21 @@
-* {
-  font-family: "Inter", sans-serif;
-  user-select: none;
-}
-html {
-  background-color: #1f1f1f;
-  color: #fff;
-}
-
-.container {
-  position: absolute;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.info {
-  text-align: center;
-  margin: 0 auto;
-  padding: 0 5px 2px 5px;
-  border-bottom: 2px solid;
-  border-color: red;
-  font-size: 20px;
-}
-
-.clock {
-  font-size: 128px;
-}
-
-.buttons {
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  text-align: center;
-  margin: 0 auto;
-}
-
-.buttons > * {
-  background-color: #55feea;
-  height: 32px;
-  font-size: 16px;
-  border: 0px;
-  border-radius: 10px;
-  padding: 0 24px;
-}
-
-.navcenter {
-  display: flex;
-  position: absolute;
-  flex-direction: row;
-  gap: 50px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: rgba(255, 0, 0, 0.5);
-  margin-top: 48px;
-  padding: 12px 20px;
-  font-size: 16px;
-  border-radius: calc((12px * 2 + 16px) / 2);
-}
-
-.navcenter > button[type] {
-  width: 25px;
-  height: 25px;
-}
-#search {
-  background-color: transparent;
-  border: none;
-  color: #fff;
-}
-input:focus,
-input:active {
-  outline: none;
-}
-
-.todo-list {
+.todo-area {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 16px;
   gap: 8px;
   margin-right: 72px;
-
   width: 268px;
   position: absolute;
   right: 0%;
   top: calc(50% - 137px / 2 - 0.5px);
 
-  background: rgba(40, 40, 40, 0.701961);
+  background: rgba(40, 40, 40, 0.7);
   box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.55),
     inset 0px 0px 0px 1px rgba(255, 255, 255, 0.2),
     inset 0px 4px 60px rgba(0, 0, 0, 0.25);
   border-radius: 9px;
+  z-index: 1;
 }
 
 .header {
@@ -110,14 +33,21 @@ input:active {
   padding: 0px;
   justify-content: space-between;
   font-size: 12px;
- background-color: green;
+  /* background-color: green; */
   width: 268px;
 }
-.status-btn{
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.status-btn {
   padding: 0;
   width: 16px;
   height: 16px;
-  background-color: red;
+  background-color: transparent;
   border: none;
 }
 .status {
@@ -147,7 +77,8 @@ input:active {
   transition: opacity 0.2s;
 }
 
-.add-todo:hover, .add-btn:hover {
+.add-todo:hover,
+.add-btn:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
 .add-btn {
@@ -164,9 +95,4 @@ input:active {
   background-color: transparent;
   border: none;
   color: #fff;
-}
-
-html {
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.40), rgba(0, 0, 0, 0.40)), url("../materials/background.jpg");
-  background-size: cover;
 }

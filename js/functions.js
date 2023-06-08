@@ -37,7 +37,6 @@ window.onload = function () {
 };
 
 function addTodo() {
-  alert("naber")
   var x = addInput.value;
   todoList.innerHTML +=`<li>
   <div>${x}</div>
@@ -45,53 +44,55 @@ function addTodo() {
     <img class="status" src="materials/tick.svg" />
   </button>
 </li>`
+  addInput.value = "";
 }
 
-// hidden button
 
-// function change(x){
-//   var hour = Math.floor(x / 60)
-//   var minutes = x % 60
-//   if(hour != 0){sec.textContent = value(hour) + ":" + value(minutes) + ":" + value(0);}
-//   else{sec.textContent = value(minutes) + ":" + value(0);}
-//   rangeValue = x
-//   console.log(rangeValue)
-// }
+function change(x){
+  var hour = Math.floor(x / 60)
+  var minutes = x % 60
+  if(hour != 0){sec.textContent = value(hour) + ":" + value(minutes) + ":" + value(0);}
+  else{sec.textContent = value(minutes) + ":" + value(0);}
+  rangeValue = x
+  console.log(rangeValue)
+}
 
-// function countDown() {
-//   var timer;
-//   var hours = Math.floor(rangeValue / 60)
-//   var minutes = rangeValue % 60
-//   var seconds = 0
+function countDown() {
+  var timer;
+  var hours = 0
+  var minutes = 25
+  var seconds = 0
 
-//   myInterval = setInterval(function () {
-//     if (minutes == 0) {
-//       if ((hours != 0)) {
-//         minutes = 59;
-//         hours--;
-//       } else {
-//         console.log("hours = 0")
-//       }
-//     }
-//     if (seconds == 0) {
-//       if ((minutes != 0)) {
-//         seconds = 59;
-//         minutes--;
-//       }
-//     }
+  myInterval = setInterval(function () {
+    if (minutes == 0) {
+      if ((hours != 0)) {
+        minutes = 59;
+        hours--;
+      } else {
+        console.log("hours = 0")
+      }
+    }
+    if (seconds == 0) {
+      if ((minutes != 0)) {
+        seconds = 59;
+        minutes--;
+      }
+    }
 
-//     sec.textContent =
-//       value(hours) + ":" + value(minutes) + ":" + value(seconds);
+    timerdiv.textContent =
+    hours > 0 ?  
+    value(hours) + ":" + value(minutes) + ":" + value(seconds):
+    value(minutes) + ":" + value(seconds);
+    if (--seconds < 0) {
+      timer = minutes;
+    }
+  }, 1000);
+  alert("ok")
+}
 
-//     if (--seconds < 0) {
-//       timer = minutes;
-//     }
-//   }, 1000);
-// }
+start.onclick = countDown;
 
-// start.onclick = countDown;
-
-// reset.onclick = () => {
-//   clearInterval(myInterval)
-//   myInterval = 0
-// };
+reset.onclick = () => {
+  clearInterval(myInterval)
+  myInterval = 0
+};

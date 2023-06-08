@@ -5,7 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Productive App</title>
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/navbar.css" />
+    <link rel="stylesheet" href="css/todo.css" />
+    <link rel="stylesheet" href="css/weather.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -15,7 +18,7 @@
   </head>
   <body>
     <nav>
-      <div class="navstart"></div>
+      <div class="navstart"><div class="clock"></div></div>
       <form class="navcenter" action="">
         <input id="search" type="text" placeholder="How can I help you?" />
         <button type="submit">
@@ -23,14 +26,14 @@
         </button>
       </form>
       <div class="navend">
-        <button>
-          <img src="materials/settings.svg" alt="" />
+        <button class="menuBtn">
+          <img src="materials/menu.svg" alt="" />
         </button>
       </div>
     </nav>
-    <div class="todo-list">
+    <div class="todo-area">
       <div class="header">To-do List</div>
-      <ul></ul>
+      <ul class="todo-list"></ul>
       <div class="add-todo">
         <!--  <div>Add To-do</div> -->
         <input class="add-input" type="text" placeholder="Add To-do" />
@@ -39,7 +42,7 @@
     </div>
     <div class="container">
       <div class="info">Working</div>
-      <span class="clock"></span>
+      <span class="timer"></span>
       <div class="buttons">
         <button class="start">Start</button>
         <button class="stop" hidden>Stop</button>
