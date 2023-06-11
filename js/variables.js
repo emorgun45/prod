@@ -1,10 +1,21 @@
 let clockdiv = document.querySelector(".clock");
 let timerdiv = document.querySelector(".timer");
+let info = document.querySelector(".info");
 let start = document.querySelector(".start");
-let reset = document.querySelector(".stop");
-let addBtn = document.querySelector(".add-btn")
-let todoList = document.querySelector(".todo-list")
-let addInput = document.querySelector(".add-input")
-// let rangeValue = document.querySelector(".range").value
+let stopBtn = document.querySelector(".stop");
+let resetBtn = document.querySelector(".reset");
+let addBtn = document.querySelector(".add-btn");
+let todoList = document.querySelector(".todo-list");
+let addInput = document.querySelector(".add-input");
+let setEl = document.querySelectorAll(".set-general > li");
+let setChBtn = document.querySelector(".checkbox > button");
+let wTime = document.querySelector("#wTime").textContent;
+let bTime = document.querySelector("#bTime").textContent;
+let lbTime = document.querySelector("#lbTime").textContent;
+let lbInter = document.querySelector("#lbInter").textContent;
+let setBtns = [-1, 1];
+let streak = 0;
+let valueC = "unchecked";
+let timerStatus = false; // if this true, timer was started
 
 const d = new Date();

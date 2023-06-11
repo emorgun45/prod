@@ -6,9 +6,13 @@ function value(x) {
   }
 }
 
+function value2(x) {
+  return value(Number(x)) + ":00"
+}
+
 function clock(hours, minutes, seconds) {
   var timer;
-  myInterval = setInterval(function () {
+  var myInterval = setInterval(function () {
     if (seconds >= 60) {
       seconds = 0;
       minutes++;
@@ -48,21 +52,21 @@ function addTodo() {
 }
 
 function change() {
-  if (info.textContent == "Working") {
-    if (streak != 3) {
-      timerdiv.textContent = "5:00";
-      info.textContent = "Break";
+  setTimeout(() => {
+    if (info.textContent == "Working") {
+      if (streak != Number(lbInter)) {
+        timerdiv.textContent = value2(bTime);
+        info.textContent = "Break";
+      } else {
+        info.textContent = "Long Break";
+        timerdiv.textContent = value2(lbTime);
+      }
     } else {
-      info.textContent = "Long Break";
-      timerdiv.textContent = lbTime + ":00";
+      info.textContent = "Working";
+      timerdiv.textContent = value2(wTime);
     }
-  } else {
-    info.textContent = "Working";
-    timerdiv.textContent = wTime + ":00";
-  }
+  }, 1000);
 }
-
-console.log(bTime);
 
 function countDown() {
   var timer;
@@ -83,10 +87,10 @@ function countDown() {
         seconds = 59;
         minutes--;
       } else {
-        clearInterval(myInterval);
-        myInterval = 0;
-        streak++;
-        // change();
+        reset();
+        change();
+        info.textContent == "Working" ? streak++ : {};
+        console.log(streak);
       }
     }
 
@@ -98,4 +102,17 @@ function countDown() {
       timer = minutes;
     }
   }, 1000);
+}
+
+function stop() {
+  clearInterval(myInterval);
+  myInterval = 0;
+  start.hidden = false;
+  stopBtn.hidden = true;
+}
+function reset() {
+  stop();
+  timerStatus = false;
+  timerdiv.textContent = wTime + ":00";
+  resetBtn.hidden = true;
 }

@@ -29,6 +29,72 @@
         <button class="menuBtn">
           <img src="materials/menu.svg" alt="" />
         </button>
+        <div class="set-area">
+          <div class="header">Settings</div>
+          <div class="sections">
+            <!-- <div class="section">General</div> -->
+          </div>
+          <ul class="set-general">
+            <li>
+              <div>Working Time</div>
+              <div class="setV">
+                <button class="-">
+                  <img src="materials/left.svg" alt="" />
+                </button>
+                <div id="wTime" class="valueS">25</div>
+                <button class="+">
+                  <img src="materials/right.svg" alt="" />
+                </button>
+              </div>
+            </li>
+            <li>
+              <div>Break Time</div>
+              <div class="setV">
+                <button class="-">
+                  <img src="materials/left.svg" alt="" />
+                </button>
+                <div id="bTime" class="valueS">5</div>
+                <button class="+">
+                  <img src="materials/right.svg" alt="" />
+                </button>
+              </div>
+            </li>
+            <li>
+              <div>Long Break Time</div>
+              <div class="setV">
+                <button class="-">
+                  <img src="materials/left.svg" alt="" />
+                </button>
+                <div id="lbTime" class="valueS">15</div>
+                <button class="+">
+                  <img src="materials/right.svg" alt="" />
+                </button>
+              </div>
+            </li>
+            <li>
+              <div>Long Break Interval</div>
+              <div class="setV">
+                <button class="-">
+                  <img src="materials/left.svg" alt="" />
+                </button>
+                <div id="lbInter" class="valueS">4</div>
+                <button class="+">
+                  <img src="materials/right.svg" alt="" />
+                </button>
+              </div>
+            </li>
+            <li>
+              <div>Animation</div>
+              <div class="setV">
+                <div class="checkbox">
+                  <button>
+                    <img src="materials/tick-checkbox.svg" alt="" />
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
     <div class="todo-area">
@@ -42,14 +108,16 @@
     </div>
     <div class="container">
       <div class="info">Working</div>
-      <span class="timer"></span>
+      <span class="timer">25:00</span>
       <div class="buttons">
         <button class="start">Start</button>
         <button class="stop" hidden>Stop</button>
+        <button class="reset"hidden>Reset</button>
       </div>
     </div>
     <script src="js/variables.js"></script>
     <script src="js/functions.js"></script>
+    <script src="js/js.js"></script>
     <script src="js/buttons.js"></script>
   </body>
 </html>

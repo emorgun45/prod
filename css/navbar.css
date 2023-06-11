@@ -60,3 +60,95 @@ nav {
 .menuBtn:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+.set-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 8px;
+  margin-right: 72px;
+  width: 268px;
+  position: absolute;
+  right: 0%;
+
+  background: rgba(40, 40, 40, 0.7);
+  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.55),
+    inset 0px 0px 0px 1px rgba(255, 255, 255, 0.2),
+    inset 0px 4px 60px rgba(0, 0, 0, 0.25);
+  border-radius: 9px;
+  z-index: 1;
+}
+
+.set-general > li {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  justify-content: space-between;
+  font-size: 12px;
+  /* background-color: green; */
+  width: 268px;
+}
+
+.set-general {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.setV {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.valueS {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 18px;
+  /* padding: 2px 5px; */
+  
+  background: rgba(6, 190, 225, 0.4);
+  border-radius: 5px;
+}
+
+
+.setV > button {
+  display: flex;
+  width: 4.5px;
+  height: 6.5px;
+  align-items: center;
+  margin: 0px 2px;
+}
+
+:root {
+  --background: none;
+  --border: 1px solid rgba(255, 255, 255, 0.2);
+  --visibility-img: hidden;
+  --background-click: rgba(6, 190, 225, 0.4);
+  --border-click: none;
+  --visibility-img-click: visible;
+}
+
+.checkbox {
+  margin-right:13px;
+}
+
+.checkbox > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  padding: 2px;
+  background-color: var(--background);
+  border: var(--border);
+}
+.checkbox > button > img {
+  visibility: var(--visibility-img);
+}
