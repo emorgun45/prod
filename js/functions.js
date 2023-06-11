@@ -38,61 +38,64 @@ window.onload = function () {
 
 function addTodo() {
   var x = addInput.value;
-  todoList.innerHTML +=`<li>
+  todoList.innerHTML += `<li>
   <div>${x}</div>
   <button class="status-btn">
     <img class="status" src="materials/tick.svg" />
   </button>
-</li>`
+</li>`;
   addInput.value = "";
 }
 
-
-function change(x){
-  var hour = Math.floor(x / 60)
-  var minutes = x % 60
-  if(hour != 0){sec.textContent = value(hour) + ":" + value(minutes) + ":" + value(0);}
-  else{sec.textContent = value(minutes) + ":" + value(0);}
-  rangeValue = x
-  console.log(rangeValue)
+function change() {
+  if (info.textContent == "Working") {
+    if (streak != 3) {
+      timerdiv.textContent = "5:00";
+      info.textContent = "Break";
+    } else {
+      info.textContent = "Long Break";
+      timerdiv.textContent = lbTime + ":00";
+    }
+  } else {
+    info.textContent = "Working";
+    timerdiv.textContent = wTime + ":00";
+  }
 }
+
+console.log(bTime);
 
 function countDown() {
   var timer;
-  var hours = 0
-  var minutes = 25
-  var seconds = 0
+  var x = timerdiv.textContent.split(":");
+  var hours = Number(x[0]) > 60 ? Math.floor(Number(x[0]) / 60) : 0;
+  var minutes = Number(x[0]) % 60;
+  var seconds = x[1];
 
   myInterval = setInterval(function () {
     if (minutes == 0) {
-      if ((hours != 0)) {
+      if (hours != 0) {
         minutes = 59;
         hours--;
-      } else {
-        console.log("hours = 0")
       }
     }
     if (seconds == 0) {
-      if ((minutes != 0)) {
+      if (minutes != 0) {
         seconds = 59;
         minutes--;
+      } else {
+        clearInterval(myInterval);
+        myInterval = 0;
+        streak++;
+        // change();
       }
     }
 
     timerdiv.textContent =
-    hours > 0 ?  
-    value(hours) + ":" + value(minutes) + ":" + value(seconds):
-    value(minutes) + ":" + value(seconds);
+      hours > 0
+        ? value(hours) + ":" + value(minutes) + ":" + value(seconds)
+        : value(minutes) + ":" + value(seconds);
     if (--seconds < 0) {
       timer = minutes;
     }
   }, 1000);
-  alert("ok")
 }
-
-start.onclick = countDown;
-
-reset.onclick = () => {
-  clearInterval(myInterval)
-  myInterval = 0
-};
