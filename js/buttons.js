@@ -7,22 +7,24 @@ for (let i = 0; i < setEl.length; i++) {
       // i = li number
       //index = - or +
       y = Number(element.querySelector(".setV > div").textContent);
-      if(y > 1 ){element.querySelector(".setV > div").textContent = y + setBtns[index];
-      if (timerStatus == false) {
-        if (i == 0) {
-          info.textContent == "Working"
-            ? (timerdiv.textContent = value2(y + setBtns[index]))
-            : {};
-        } else if (i == 1) {
-          info.textContent == "Break"
-            ? (timerdiv.textContent = value2(y + setBtns[index]))
-            : {};
-        } else if (i == 2) {
-          info.textContent == "Long Break"
-            ? (timerdiv.textContent = value2(y + setBtns[index]))
-            : {};
+      if (y > 1) {
+        element.querySelector(".setV > div").textContent = y + setBtns[index];
+        if (timerStatus == false) {
+          if (i == 0) {
+            info.textContent == "Working"
+              ? (timerdiv.textContent = value2(y + setBtns[index]))
+              : {};
+          } else if (i == 1) {
+            info.textContent == "Break"
+              ? (timerdiv.textContent = value2(y + setBtns[index]))
+              : {};
+          } else if (i == 2) {
+            info.textContent == "Long Break"
+              ? (timerdiv.textContent = value2(y + setBtns[index]))
+              : {};
+          }
         }
-      }}
+      }
       // if you wanna specified function for buttons add here
     };
   });
@@ -53,3 +55,4 @@ start.onclick = () => {
 
 stopBtn.onclick = stop;
 resetBtn.onclick = reset;
+// statusBtn.onclick = changeStatus;

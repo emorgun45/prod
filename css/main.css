@@ -50,7 +50,7 @@ button:hover {
 }
 
 .buttons > * {
-  background-color: #55feea;
+  background-color: rgba(85, 254, 234, 0.65);
   height: 32px;
   font-size: 16px;
   border: 0px;
