@@ -50,7 +50,9 @@ function addTodo() {
     </div>
   </button>
 </li>`;
-  infoSt.push(2);
+  document.querySelector("select[name='to-dos']").innerHTML +=
+  `<option value="${count}">${addInput.value}</option>`
+    infoSt.push(2);
   addInput.value = "";
   count++;
 }
@@ -94,7 +96,6 @@ function countDown() {
         reset();
         change();
         info.textContent == "Working" ? streak++ : {};
-        console.log(streak);
       }
     }
 
@@ -119,6 +120,14 @@ function reset() {
   timerStatus = false;
   timerdiv.textContent = wTime + ":00";
   resetBtn.hidden = true;
+  start.hidden = false;
+  start.style.display = "flex";
+  setTimeout(() => {
+    start.style.opacity = "1";
+    setTimeout(() => {
+      document.querySelector("#x").style.animation = "stoped-timer 1s forwards";
+    }, 1000);
+  }, 100);
 }
 
 function changeStatus(x) {
@@ -126,8 +135,6 @@ function changeStatus(x) {
     let statusArea = document.querySelectorAll(".status-btn > div");
     area = statusArea[x];
     var z = -1 * (infoSt[x] * 20 - 20);
-    console.log(z);
-    console.log(area);
     area.innerHTML = `
     <img class="status" src="materials/tick.svg" />
     <img class="status" src="materials/in progress.svg" />
@@ -148,34 +155,36 @@ for (let i = 0; i < statusAreaImgs.length; i++) {
     console.log(index);
   };*/
   let statusBtn = document.querySelectorAll(".status-btn");
-  let statusAreaImgs = area.querySelectorAll("img")
-  console.log(statusBtn)
-
-  ;
-
-statusAreaImgs.forEach((item,index)=>{
-  console.log(item)
-})
+  let statusAreaImgs = area.querySelectorAll("img");
 
   statusAreaImgs.forEach((item, index) => {
     item.onclick = () => {
       if (y == true) {
         valueT = -1 * (index * 20 - 20);
         infoSt[x] = index;
-        console.log("changed: " + infoSt);
-        console.log("valueT: " + valueT);
         area.style.transform = `translateX(${valueT}px)`;
         area.style.transition = "transform 1s";
 
         setTimeout(() => {
           area.textContent = " ";
           area.appendChild(statusAreaImgs[index]);
+          console.log(z);
+          console.log(index);
+          if (index == 0) {
+            let todo = todoList.querySelectorAll("li");
+            z = todo[x].querySelector("input");
+            todo[x].querySelector("input").style.textDecoration =
+              "line-through #fff";
+            todo[x].querySelector("input").style.color = "grey";
+          }
+
+          // color: grey;
+          // text-decoration: line-through white;
           statusBtn[x].style.justifyContent = "center";
           area.style.transform = `translateX(0px)`;
           area.style.transition = "none";
           y = false;
         }, 1000);
-        console.log(area.style.transform);
       }
     };
   });

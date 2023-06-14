@@ -37,6 +37,10 @@
   width: 268px;
 }
 
+.todo-list > li > input {
+  transition: color 1s;
+}
+
 .todo-list {
   display: flex;
   flex-direction: column;

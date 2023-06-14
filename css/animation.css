@@ -1,0 +1,29 @@
+@keyframes started-timer {
+  0% {
+    background-color: rgba(85, 254, 234, 0.65);
+    color: #fff;
+    width: 0;
+    height: 32px;
+  }
+  100% {
+    background-color: #000;
+    color: #000;
+    width: 100vw;
+    height: 115vh;
+  }
+}
+
+@keyframes stoped-timer {
+  0% {
+    background-color: #000;
+    color: #000;
+    width: 100vw;
+    height: 115vh;
+  }
+  100% {
+    color: #fff;
+    width: 0;
+    height: 32px;
+    background-color: transparent;
+  }
+}
