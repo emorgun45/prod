@@ -27,3 +27,7 @@
     background-color: transparent;
   }
 }
+@keyframes start-button {
+  0% {transform: translateX(0px)}
+  100% {transform: translateX(50px)}
+}

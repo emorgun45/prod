@@ -20,12 +20,12 @@
   <body>
     <nav>
       <div class="navstart"><div class="clock"></div></div>
-      <form class="navcenter" action="">
-        <input id="search" type="text" placeholder="How can I help you?" />
+      <div class="navcenter">
+        <input id="search" type="text" placeholder="How can I help you?" autocomplete="off"/>
         <button type="submit">
           <img src="materials/search.svg" alt="" srcset="" />
         </button>
-      </form>
+      </div>
       <div class="navend">
         <button class="menuBtn">
           <img src="materials/menu.svg" alt="" />
@@ -100,7 +100,14 @@
     </nav>
     <div class="todo-area">
       <div class="header">To-do List</div>
-      <ul class="todo-list"></ul>
+      <ul class="todo-list"><li>
+        <input value="x">
+        <button class="status-btn" onclick="statusButton(0)">
+          <div>
+          <img class="status" src="materials/x mark.svg">
+          </div>
+        </button>
+      </li></ul>
       <div class="add-todo">
         <input class="add-input" type="text" placeholder="Add new task" />
         <button class="add-btn"><img src="materials/add.svg" alt="" /></button>
@@ -118,6 +125,7 @@
     <div id="x" ></div>
     <script src="js/variables.js"></script>
     <script src="js/functions.js"></script>
+    <script src="js/countdown.js"></script>
     <script src="js/js.js"></script>
     <script src="js/buttons.js"></script>
   </body>
