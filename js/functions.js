@@ -169,10 +169,10 @@ function go() {
 }
 
 function search() {
-  var x = search.value;
+  var x = searchInput.value;
   
   window.open(
-    `https://www.google.com/search?q=${encodeURI(x)}`,
+    `https://www.google.com/search?q=${encodeURIComponent(x)}`,
     "_blank"
   );
   search.value = "";
