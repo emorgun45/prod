@@ -77,7 +77,7 @@ start.onclick = () => {
       } else {
         document.querySelector(
           "select[name='to-dos']"
-        ).innerHTML += `<option value="x">Add new task</option>`;
+        ).innerHTML += `<option value="x">Add task</option>`;
       }
       start.querySelector("button").onclick = () => {
         workingV = document.querySelector("select[name='to-dos']").value;
