@@ -17,39 +17,26 @@ function value3(value, x) {
   }, 100);
 }
 
-function clock(hours, minutes, seconds) {
+function clock() {
   var timer;
   var myInterval = setInterval(function () {
-    if (seconds >= 60) {
-      seconds = 0;
-      minutes++;
-    }
-    if (minutes >= 60) {
-      minutes = 0;
-      hours++;
-    }
-
-    if (hours > 23) {
-      hours = 0;
-    }
+    var d = new Date();
+    var hours = d.getHours();
+    var minutes = d.getMinutes();
     clockdiv.textContent = value(hours) + ":" + value(minutes);
-
-    if (++seconds < 0) {
-      timer = minutes;
-    }
   }, 1000);
 }
 
 window.onload = function () {
-  var seconds = d.getSeconds();
-  var hours = d.getHours();
-  var minutes = d.getMinutes();
-  clock(hours, minutes, seconds);
+  clock();
 };
 
 function addTodo() {
-  var x = addInput.value;
-  todoList.innerHTML += `<li>
+  if (addInput.value.trim().length != 0) {
+    {
+      var x = addInput.value;
+      addTodoDiv.style.border = "none";
+      todoList.innerHTML += `<li>
   <input value='${x}'>
   <button class="status-btn" onclick="statusButton(${count})">
     <div>
@@ -57,33 +44,41 @@ function addTodo() {
     </div>
   </button>
 </li>`;
-  if (z == true) {
-    document.querySelector(
-      "select[name='to-dos']"
-    ).innerHTML += `<option value="${count}">${addInput.value}</option>`;
-    if (count == 0) {
-      document.querySelector("option[value='x']").remove();
+      if (z == true) {
+        document.querySelector(
+          "select[name='to-dos']"
+        ).innerHTML += `<option value="${count}">${addInput.value}</option>`;
+        if (count == 0) {
+          document.querySelector("option[value='x']").remove();
+        }
+      }
+      infoSt.push(2);
+      addInput.value = "";
+      count++;
     }
+  } else {
+    addTodoDiv.style.border = "solid 1px rgba(255,0,0,0.5)";
   }
-  infoSt.push(2);
-  addInput.value = "";
-  count++;
 }
 
 function change() {
   setTimeout(() => {
-    if (info.textContent == "Working") {
+    if (timerType == "working") {
       if (streak != Number(lbInter)) {
         timerdiv.textContent = value2(bTime);
         info.textContent = "Break";
+        timerType = "break";
       } else {
         info.textContent = "Long Break";
         timerdiv.textContent = value2(lbTime);
+        timerType = "long break";
       }
     } else {
-      info.textContent = "Working";
       timerdiv.textContent = value2(wTime);
+      info.textContent = "Working";
+      timerType = "working";
     }
+    console.log(timerType);
   }, 1000);
 }
 
@@ -149,17 +144,19 @@ function statusImgs(index, x) {
 }
 
 function go() {
-  start.textContent = "Start";
+  console.log("went");
+  startBtn.textContent = "Start";
   document.querySelector("#x").style.animation = "started-timer 1s forwards";
   countDown();
-  timerStatus = true;
-  start.style.opacity = "0";
+  timerStatus = "started";
+  startBtn.style.opacity = "0";
 
   setTimeout(() => {
-    start.style.display = "none";
-    start.hidden = true;
+    startBtn.style.display = "none";
+    startBtn.hidden = true;
     stopBtn.hidden = false;
     resetBtn.hidden = false;
+    startBtn.onclick = start;
     z = false;
     setTimeout(() => {
       stopBtn.style.opacity = "1";
@@ -170,10 +167,16 @@ function go() {
 
 function search() {
   var x = searchInput.value;
-  
+
   window.open(
     `https://www.google.com/search?q=${encodeURIComponent(x)}`,
     "_blank"
   );
   search.value = "";
 }
+
+addInput.addEventListener("keypress", function (e) {
+  if (e.key == "Enter") {
+    addTodo();
+  }
+});
