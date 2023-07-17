@@ -180,3 +180,5 @@ addInput.addEventListener("keypress", function (e) {
     addTodo();
   }
 });
+
+// console.log(startBtn    .getBoundingClientRect())

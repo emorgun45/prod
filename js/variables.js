@@ -1,7 +1,9 @@
+let html = document.querySelector("html");
+
 let clockdiv = document.querySelector(".clock");
 let timerdiv = document.querySelector(".timer");
 let info = document.querySelector(".info");
-let start = document.querySelector(".start");
+let startBtn = document.querySelector(".start");
 let stopBtn = document.querySelector(".stop");
 let resetBtn = document.querySelector(".reset");
 let workingV;
@@ -30,8 +32,8 @@ let searchBtn = document.querySelector(".navcenter > button");
 let streak = 0;
 let valueC = "unchecked";
 let valueT = -20;
-let timerStatus = false; // if this true, timer was started
+let timerStatus = "stoped";
+let timerType = "working"
 let y = false;
 let z = false;
 
-const d = new Date();
